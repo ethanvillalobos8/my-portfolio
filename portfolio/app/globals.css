@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'love';
+    src: url('../fonts/LOVES.ttf') format('truetype');
+}  
+@font-face {
+    font-family: 'museo';
+    src: url('../fonts/MuseoSans_500.otf') format('truetype');
+}
+@keyframes splash {
+    0%      { opacity: 0; }
+    50%     { opacity: 1; }
+    100%    { opacity: 0; }
+}
+.splash {
+    animation: splash 4s cubic-bezier(0.4, 0, 0.6, 1);
+}
+@keyframes home {
+    0%      { opacity: 0; }
+    40%     { opacity: 0; }
+    100%    { opacity: 1; }
+}
+.home {
+    animation: home 3s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
