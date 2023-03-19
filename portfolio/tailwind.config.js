@@ -11,7 +11,12 @@ module.exports = {
   ],
   darkMode: true, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "hero": "url('/images/g-swirl.png')",
+        "heroB": "url('/images/g-swirl-blur.png')",
+      }
+    },
   },
   variants: {},
   plugins: [],

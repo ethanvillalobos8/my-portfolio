@@ -10,13 +10,17 @@
     font-family: 'museo';
     src: url('../fonts/MuseoSans_500.otf') format('truetype');
 }
+@font-face {
+    font-family: 'museoBold';
+    src: url('../fonts/MuseoSans_700.otf') format('truetype');
+}
 @keyframes splash {
     0%      { opacity: 0; }
     50%     { opacity: 1; }
     100%    { opacity: 0; }
 }
 .splash {
-    animation: splash 4s cubic-bezier(0.4, 0, 0.6, 1);
+    animation: splash 2s cubic-bezier(0.4, 0, 0.6, 1);
 }
 @keyframes home {
     0%      { opacity: 0; }
@@ -24,6 +28,16 @@
     100%    { opacity: 1; }
 }
 .home {
-    animation: home 3s cubic-bezier(0.4, 0, 0.6, 1);
+    animation: home 1.5s cubic-bezier(0.4, 0, 0.6, 1);
+}
+#background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform-origin: center center;
+    transition: transform 0.2s ease-out;
 }
 
