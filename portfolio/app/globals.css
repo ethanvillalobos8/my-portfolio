@@ -40,4 +40,10 @@
     transform-origin: center center;
     transition: transform 0.2s ease-out;
 }
+.text-modifier:hover {
+    font-size: 3rem;
+}
+
+
+
 
