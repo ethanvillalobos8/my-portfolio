@@ -3,6 +3,11 @@
 import Splash from '../components/Splash';
 import Skills from '@/components/Skills';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+
+import { AiFillGithub } from 'react-icons/ai';
+import { AiFillLinkedin } from 'react-icons/ai';
+import { AiOutlineTwitter } from "react-icons/ai";
 
 const sentences = [
     "and I'm an aspiring software engineer.",
@@ -15,27 +20,36 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
     const [index, setIndex] = useState(0);
     const [currentSentence, setCurrentSentence] = useState(sentences[index]);
-    const [typing, setTyping] = useState(true);
+    const [delay, setDelay] = useState(true);
+    const [typing, setTyping] = useState(true);   
 
     useEffect(() => {
-        setTimeout(() => {
-            if (typing) {
-                if (currentSentence.length === sentences[index].length) {
-                    setTimeout(() => setTyping(false), 1000);
+        let timeoutId;
+        if (!delay) {
+            timeoutId = setTimeout(() => {
+                if (typing) {
+                    if (currentSentence.length === sentences[index].length) {
+                        setTimeout(() => setTyping(false), 1500);
+                    } else {
+                        setCurrentSentence(
+                            sentences[index].slice(0, currentSentence.length + 1)
+                        );
+                    }
                 } else {
-                setCurrentSentence(
-                    sentences[index].slice(0, currentSentence.length + 1)
-                );
+                    setCurrentSentence(currentSentence.slice(0, -1));
+                    if (currentSentence === 'and ') {
+                        setIndex((index + 1) % sentences.length);
+                        setTyping(true);
+                    }
                 }
-            } else {
-                setCurrentSentence(currentSentence.slice(0, -1));
-                if (currentSentence === 'and ') {
-                    setIndex((index + 1) % sentences.length);
-                    setTyping(true);
-                }
-            }
-        }, 50);
-    }, [currentSentence, index, typing]);
+            }, 50);
+        } else {
+            timeoutId = setTimeout(() => {
+                setDelay(false);
+            }, 6000);
+        }
+        return () => clearTimeout(timeoutId);
+    }, [currentSentence, delay, index, typing]);      
 
     useEffect(() => {
         // Simulate a long initial load (for demo purposes only)
