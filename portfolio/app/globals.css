@@ -44,6 +44,30 @@
     font-size: 3rem;
 }
 
+@keyframes glitch {
+    0% {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+    10% {
+        opacity: 0.8;
+        transform: skew(-5deg);
+    }
+    20% {
+        opacity: 1;
+        transform: skew(5deg);
+    }
+    30% {
+        opacity: 0.8;
+        transform: translate3d(-5px, 0, 0);
+    }
+    40%, 100% {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+}
 
-
-
+.glitch {
+    display: inline-block;
+    animation: glitch 500ms infinite linear alternate-reverse;
+}
