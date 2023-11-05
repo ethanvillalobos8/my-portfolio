@@ -4,6 +4,7 @@ import Splash from '../components/Splash';
 import Skills from '@/components/Skills';
 import Navigator from '@/components/Navigator';
 import ProjectsHighlight from '@/components/ProjectsHighlight';
+import Experience from '@/components/Experience';
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 
@@ -141,7 +142,7 @@ const Home = () => {
             {/* <Skills id="skills" /> */}
             <div ref={skillsRef} id="skills">Skills Section</div>
             <ProjectsHighlight reference={projectsRef} section={currentSection} />
-            <div ref={experienceRef} id="experience">Experience Section</div>
+            <Experience reference={experienceRef} section={currentSection} />
         </main>
     );
 };
