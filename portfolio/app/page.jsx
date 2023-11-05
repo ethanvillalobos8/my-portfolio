@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 import { AiFillGithub } from 'react-icons/ai';
 import { AiFillLinkedin } from 'react-icons/ai';
-import { AiOutlineTwitter } from "react-icons/ai";
+import { FaTiktok } from "react-icons/fa";
 
 const sentences = [
     "and I'm an aspiring software engineer.",
@@ -105,10 +105,10 @@ const Home = () => {
                     <section className="h-full w-full flex flex-row items-center justify-center">
                         <div className="grid grid-cols-1 w-2/3 self-center">
                             <div className='grid content-center'>
-                                <p className="pb-2 font-sans text-sm text-[#fff9e6]">
+                                <p className="pb-2 text-sm font-sans tracking-[.30em] text-[#fff9e6]">
                                     Hi, my name is
                                 </p>
-                                <h1 className="text-4xl tracking-widest text-zinc-50" style={{ fontFamily: 'museo' }}>Ethan Villalobos</h1>
+                                <h1 className="text-4xl tracking-wider text-zinc-50 uppercase" style={{ fontFamily: 'museoBold' }}>Ethan Villalobos</h1>
                                 <p className="font-sans text-2xl text-zinc-300">
                                     { currentSentence }
                                 </p>
@@ -131,7 +131,9 @@ const Home = () => {
                             <Link href={'https://github.com/ethanvillalobos8'}>
                                 <AiFillGithub className="hover:text-white text-3xl text-modifier transition-all duration-300 ease-in-out text-zinc-50" />
                             </Link>
-                            <AiOutlineTwitter className="hover:text-white text-3xl text-zinc-50" />
+                            <Link href={'https://www.tiktok.com/@ethanvillalobos8'}>
+                                <FaTiktok className="hover:text-white text-2xl text-modifier transition-all duration-300 ease-in-out text-zinc-50" />
+                            </Link>
                         </div>
                     </div>
                     <div className='grid content-end w-full h-full'>
@@ -139,8 +141,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            {/* <Skills id="skills" /> */}
-            <div ref={skillsRef} id="skills">Skills Section</div>
+            <Skills reference={skillsRef} section={currentSection} />
             <ProjectsHighlight reference={projectsRef} section={currentSection} />
             <Experience reference={experienceRef} section={currentSection} />
         </main>
