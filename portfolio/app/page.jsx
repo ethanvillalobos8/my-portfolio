@@ -2,7 +2,9 @@
 
 import Splash from '../components/Splash';
 import Skills from '@/components/Skills';
-import { useEffect, useState } from 'react';
+import Navigator from '@/components/Navigator';
+import ProjectsHighlight from '@/components/ProjectsHighlight';
+import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 
 import { AiFillGithub } from 'react-icons/ai';
@@ -17,11 +19,38 @@ const sentences = [
 ];
 
 const Home = () => {
+    const [currentSection, setCurrentSection] = useState('home');
+    const skillsRef = useRef(null);
+    const projectsRef = useRef(null);
+    const experienceRef = useRef(null);
+
     const [loading, setLoading] = useState(true);
     const [index, setIndex] = useState(0);
     const [currentSentence, setCurrentSentence] = useState(sentences[index]);
     const [delay, setDelay] = useState(true);
-    const [typing, setTyping] = useState(true);   
+    const [typing, setTyping] = useState(true);  
+    
+    const onScroll = () => {
+        const scrollPos = window.scrollY;
+        const skillsPos = skillsRef.current.offsetTop;
+        const projectsPos = projectsRef.current.offsetTop;
+        const experiencePos = experienceRef.current.offsetTop;
+
+        if (scrollPos >= experiencePos) {
+            setCurrentSection('experience');
+        } else if (scrollPos >= projectsPos) {
+            setCurrentSection('projects');
+        } else if (scrollPos >= skillsPos) {
+            setCurrentSection('skills');
+        } else {
+            setCurrentSection('home');
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
 
     useEffect(() => {
         let timeoutId;
@@ -62,15 +91,15 @@ const Home = () => {
 
     return (
         <main id="backgroundImage" className="home">
-            <div className="grid grid-cols-2 min-h-screen w-screen bg-[#030204]">
-                
+            <div className="grid grid-cols-2 min-h-screen w-screen bg-[#030204] snap-y snap-mandatory">
+                <Navigator currentPage={currentSection} />
                 <div className='flex flex-col mb-20'>
                     <div className="w-2/3 ml-12 mt-12 text-5xl text-zinc-100 justify-center" style={{ fontFamily: 'museoBold' }}>
-                        <button className='hover:translate-x-6 hover:font-bold hover:text-[#af70b3] transition-all duration-300 ease-in-out'>SKILLS</button>
+                        <button onClick={() => {document.getElementById("skills").scrollIntoView({behavior: 'smooth'})}} className='hover:translate-x-6 hover:font-bold hover:text-[#af70b3] transition-all duration-300 ease-in-out'>SKILLS</button>
                         <br></br>
-                        <button className='hover:translate-x-6 hover:font-bold hover:text-[#f4d160] transition-all duration-300 ease-in-out'>PROJECTS</button>
+                        <button onClick={() => {document.getElementById("projects").scrollIntoView({behavior: 'smooth'})}} className='hover:translate-x-6 hover:font-bold hover:text-[#f4d160] transition-all duration-300 ease-in-out'>PROJECTS</button>
                         <br></br>
-                        <button className='hover:translate-x-6 hover:font-bold hover:text-[#c8debf] transition-all duration-300 ease-in-out'>EXPERIENCE</button>
+                        <button onClick={() => {document.getElementById("experience").scrollIntoView({behavior: 'smooth'})}} className='hover:translate-x-6 hover:font-bold hover:text-[#c8debf] transition-all duration-300 ease-in-out'>EXPERIENCE</button>
                     </div>
                     <section className="h-full w-full flex flex-row items-center justify-center">
                         <div className="grid grid-cols-1 w-2/3 self-center">
@@ -78,7 +107,7 @@ const Home = () => {
                                 <p className="pb-2 font-sans text-sm text-[#fff9e6]">
                                     Hi, my name is
                                 </p>
-                                <h1 className="text-4xl text-zinc-50" style={{ fontFamily: 'museo' }}>Ethan Villalobos</h1>
+                                <h1 className="text-4xl tracking-widest text-zinc-50" style={{ fontFamily: 'museo' }}>Ethan Villalobos</h1>
                                 <p className="font-sans text-2xl text-zinc-300">
                                     { currentSentence }
                                 </p>
@@ -109,7 +138,10 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <Skills id="skills" />
+            {/* <Skills id="skills" /> */}
+            <div ref={skillsRef} id="skills">Skills Section</div>
+            <ProjectsHighlight reference={projectsRef} section={currentSection} />
+            <div ref={experienceRef} id="experience">Experience Section</div>
         </main>
     );
 };
