@@ -15,7 +15,7 @@ module.exports = {
       backgroundImage: {
         "hero": "url('/images/g-swirl.png')",
         "heroB": "url('/images/g-swirl-blur.png')",
-        "heroBg": "url('/images/g-swirl-blur-g.png')",
+        "heroBg": "url('/images/thermal-map-min.png')",
       },
     },
   },
