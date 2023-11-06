@@ -137,7 +137,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className='grid content-end w-full h-full'>
-                        <img src="/images/heat-map-ow.png" />
+                        <img src="/images/heat-map-ow-min.png" />
                     </div>
                 </div>
             </div>
