@@ -30,7 +30,7 @@ const ProjectsHighlight = ( {reference, section } ) => {
                         className={`relative text-5xl md:text-6xl lg:text-8xl leading-none font-semibold cursor-pointer w-screen 
                         ${index === projects.length - 1 ? 'border-y-2' : 'border-t-2'} border-zinc-900`}
                     >
-                        <div className="relative px-20 lg:px-40 w-full z-10">
+                        <div className="relative px-10 md:px-20 lg:px-40 w-full z-10">
                             {/* Pseudo-element for background effect */}
                             <div
                                 className={`absolute top-1/2 left-0 w-full transition-all duration-500 ease-out ${activeProject === project.name ? 'h-full' : 'h-0'} bg-[#f4d160]`}

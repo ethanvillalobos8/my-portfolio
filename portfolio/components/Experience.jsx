@@ -41,7 +41,7 @@ const Experience = ( { reference, section } ) => {
         <div ref={reference} id="experience" className="flex flex-col justify-center items-center bg-black text-zinc-50 w-screen h-screen py-10">
             <Navigator currentPage={section} />
             <div className="w-full justify-center">
-                <div className="px-20 pb-10 lg:px-40 tracking-[.40em] text-zinc-100 text-sm uppercase opacity-75">
+                <div className="px-10 md:px-20 pb-10 lg:px-40 tracking-[.40em] text-zinc-100 text-sm uppercase opacity-75">
                     Experience
                 </div>
                 {experiences.map((experience, index) => (
@@ -64,7 +64,7 @@ const Experience = ( { reference, section } ) => {
                                 }, 500);
                                 setActiveProject(null);
                             }}
-                            className={`flex flex-col md:py-0 md:flex-row items-start md:items-center px-20 lg:px-40 w-full h-auto py-6 md:h-32 ${activeProject === experience.year ? 'transition ease-in-out duration-500 bg-[#c8debf] text-[#030204]' : 'transition ease-in-out duration-500 bg-[#030204] text-zinc-50'}`}
+                            className={`flex flex-col md:py-0 md:flex-row items-start md:items-center px-10 md:px-20 lg:px-40 w-full h-auto py-6 md:h-32 ${activeProject === experience.year ? 'transition ease-in-out duration-500 bg-[#c8debf] text-[#030204]' : 'transition ease-in-out duration-500 bg-[#030204] text-zinc-50'}`}
                             onClick={() => handleProjectClick(experience.year)}>
                             <div className="flex items-center w-1/5 h-1/2">
                                 {experience.year}

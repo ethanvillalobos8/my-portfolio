@@ -34,7 +34,7 @@ const Skills = ({ reference, section }) => {
     const textClip = curtainWidth;
 
     return (
-        <div ref={reference} id="skills" className="relative bg-[#030204] h-screen md:h-[50vh] flex justify-center items-center w-screen overflow-hidden py-10">
+        <div ref={reference} id="skills" className="relative bg-[#030204] h-screen flex justify-center items-center w-screen overflow-hidden py-10">
             <Navigator currentPage={section} />
             {/* Curtains */}
             <div
