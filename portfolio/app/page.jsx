@@ -91,25 +91,25 @@ const Home = () => {
     }
 
     return (
-        <main id="backgroundImage" className="home">
-            <div className="grid grid-cols-2 min-h-screen w-screen bg-[#030204] snap-y snap-mandatory">
+        <main id="backgroundImage" className="home snap-y snap-mandatory">
+            <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen w-screen bg-[#030204]">
                 <Navigator currentPage={currentSection} />
-                <div className='flex flex-col mb-20'>
-                    <div className="w-2/3 ml-12 mt-12 text-5xl text-zinc-100 justify-center" style={{ fontFamily: 'museoBold' }}>
-                        <button onClick={() => {document.getElementById("skills").scrollIntoView({behavior: 'smooth'})}} className='hover:translate-x-6 hover:font-bold hover:text-[#af70b3] transition-all duration-300 ease-in-out'>SKILLS</button>
+                <div className='flex flex-col w-full md:mb-20'>
+                    <div className="w-2/3 ml-12 mt-12 md:mb-12 lg:mb-0 text-3xl md:text-4xl lg:text-5xl text-zinc-100 justify-center" style={{ fontFamily: 'museoBold' }}>
+                        <button onClick={() => {document.getElementById("skills").scrollIntoView({behavior: 'smooth'})}} className='md:hover:translate-x-6 md:hover:text-5xl lg:hover:text-6xl md:hover:text-[#af70b3] md:transition-all md:duration-300 md:ease-in-out'>SKILLS</button>
                         <br></br>
-                        <button onClick={() => {document.getElementById("projects").scrollIntoView({behavior: 'smooth'})}} className='hover:translate-x-6 hover:font-bold hover:text-[#f4d160] transition-all duration-300 ease-in-out'>PROJECTS</button>
+                        <button onClick={() => {document.getElementById("projects").scrollIntoView({behavior: 'smooth'})}} className='md:hover:translate-x-6 md:hover:text-5xl lg:hover:text-6xl md:hover:text-[#f4d160] md:transition-all md:duration-300 md:ease-in-out'>PROJECTS</button>
                         <br></br>
-                        <button onClick={() => {document.getElementById("experience").scrollIntoView({behavior: 'smooth'})}} className='hover:translate-x-6 hover:font-bold hover:text-[#c8debf] transition-all duration-300 ease-in-out'>EXPERIENCE</button>
+                        <button onClick={() => {document.getElementById("experience").scrollIntoView({behavior: 'smooth'})}} className='md:hover:translate-x-6 md:hover:text-5xl lg:hover:text-6xl md:hover:text-[#c8debf] md:transition-all md:duration-300 md:ease-in-out'>EXPERIENCE</button>
                     </div>
-                    <section className="h-full w-full flex flex-row items-center justify-center">
-                        <div className="grid grid-cols-1 w-2/3 self-center">
+                    <section className="h-full w-full flex flex-row items-center justify-center py-12 lg:py-0">
+                        <div className='w-2/3'>
                             <div className='grid content-center'>
-                                <p className="pb-2 text-sm font-sans tracking-[.30em] text-[#fff9e6]">
+                                <p className="pb-2 text-xs lg:text-sm font-sans tracking-[.30em] text-[#fff9e6]">
                                     Hi, my name is
                                 </p>
-                                <h1 className="text-4xl tracking-wider text-zinc-50 uppercase" style={{ fontFamily: 'museoBold' }}>Ethan Villalobos</h1>
-                                <p className="font-sans text-2xl text-zinc-300">
+                                <h1 className="text-2xl md:text-3xl lg:text-4xl tracking-wider text-zinc-50 uppercase" style={{ fontFamily: 'museoBold' }}>Ethan Villalobos</h1>
+                                <p className="font-sans text-lg lg:text-2xl text-zinc-300">
                                     { currentSentence }
                                 </p>
                                 <br></br>
@@ -122,21 +122,21 @@ const Home = () => {
                         </div>
                     </section>
                 </div>
-                <div className='flex flex-col w-full h-full bg-heroBg'>
+                <div className='flex flex-col w-full h-full items-center justify-center bg-heroBg'>
                     <div className='grid content-center w-full h-full'>
-                        <div className='flex flex-col w-full items-center space-y-8'>
-                            <Link href={'https://www.linkedin.com/in/ethanvillalobos/'}>
+                        <div className='flex flex-row lg:flex-col w-full justify-center items-center p-2'>
+                            <Link className='p-4' href={'https://www.linkedin.com/in/ethanvillalobos/'}>
                                 <AiFillLinkedin className="hover:text-white text-3xl text-modifier transition-all duration-300 ease-in-out text-zinc-50" />
                             </Link>
-                            <Link href={'https://github.com/ethanvillalobos8'}>
+                            <Link className='p-4' href={'https://github.com/ethanvillalobos8'}>
                                 <AiFillGithub className="hover:text-white text-3xl text-modifier transition-all duration-300 ease-in-out text-zinc-50" />
                             </Link>
-                            <Link href={'https://www.tiktok.com/@ethanvillalobos8'}>
+                            <Link className='p-4' href={'https://www.tiktok.com/@ethanvillalobos8'}>
                                 <FaTiktok className="hover:text-white text-2xl text-modifier transition-all duration-300 ease-in-out text-zinc-50" />
                             </Link>
                         </div>
                     </div>
-                    <div className='grid content-end w-full h-full'>
+                    <div className='grid content-end w-full h-fit'>
                         <img src="/images/heat-map-ow-min.png" />
                     </div>
                 </div>
