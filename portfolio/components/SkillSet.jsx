@@ -2,10 +2,10 @@ import React from 'react';
 
 const SkillSet = ( {section} ) => {
     return (
-        <section class="skills-section py-12 px-8">
+        <section class="skills-section my-12 px-20 md:px-10 lg:px-8">
             <div class="container mx-auto">
                 <h2 class={`text-7xl tracking-wide font-semibold mb-10 ${section === 'skills' ? 'transition ease-in duration-250 text-[#af70b3]': 'transition ease-out duration-1000'}`} style={{ fontFamily: 'museoBold' }}>Skillset.</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 
                     <div class="skill">
                         <h3 class="skill-title text-2xl font-semibold mb-2" style={{ fontFamily: 'museoBold' }}>Machine Learning & Analysis</h3>
