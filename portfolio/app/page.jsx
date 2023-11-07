@@ -109,7 +109,7 @@ const Home = () => {
                                     Hi, my name is
                                 </p>
                                 <h1 className="text-2xl md:text-3xl lg:text-4xl tracking-wider text-zinc-50 uppercase" style={{ fontFamily: 'museoBold' }}>Ethan Villalobos</h1>
-                                <p className="font-sans text-lg lg:text-2xl text-zinc-300">
+                                <p className="flex max-[500px]:h-[52px] font-sans text-lg lg:text-2xl text-zinc-300">
                                     { currentSentence }
                                 </p>
                                 <br></br>
